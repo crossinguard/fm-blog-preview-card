@@ -1,19 +1,18 @@
-@import url(https://fonts.bunny.net/css?family=outfit:400,700);
+@import url(https://fonts.bunny.net/css?family=figtree:500,800);
 
 :root {
   /* DESIGN ELEMENTS */
+  --yellow: hsl(47, 88%, 63%);
   --white: hsl(0, 0%, 100%);
-  --light-grey: hsl(212, 45%, 89%);
-  --grey: hsl(220, 15%, 55%);
-  --dark-navy: hsl(218, 44%, 22%);
-  --blue: #2e80fa;
-  --font-size: 15px;
+  --grey: hsl(0, 0%, 50%);
+  --black: hsl(0, 0%, 7%);
+  --font-size: 16px;
   --mobile-size: 375px;
   --desktop-size: 1440px;
-  --font-family: 'Outfit', sans-serif;
+  --font-family: 'Figtree', sans-serif;
 
   /* HEADER & FOOTER */
-  --primary: var(--dark-navy);
+  --primary: var(--yellow);
   --secondary: var(--blue);
   --tertiary: var(--grey);
 }
