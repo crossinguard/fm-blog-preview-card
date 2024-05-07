@@ -1,89 +1,53 @@
 ---
-import Image from "astro/components/Image.astro";
-import type { ImageMetadata } from "astro";
-
-interface Props {
-  qr_path: string;
-  background_path: string;
-  heading_text: string;
-  body_text: string;
-}
-
-const { qr_path, background_path, heading_text, body_text } = Astro.props;
-const images = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/*.{png,svg}"
-);
-if (!images[qr_path])
-  throw new Error(
-    `"${qr_path}" does not exist in glob: "src/assets/*.{png,svg}"`
-  );
-if (!images[background_path])
-  throw new Error(
-    `"${background_path}" does not exist in glob: "src/assets/*.{png,svg}"`
-  );
-
+import Image from 'astro/components/Image.astro';
+import blogImg from '../assets/illustration-article.svg';
+import authorImg from '../assets/image-avatar.webp';
 ---
 
 <div class="card">
-    <div class="qr">
-        <Image src={images[qr_path]()} alt="QR code" class="qr-code" height="160" width="160"/>
-        <Image src={images[background_path]()} alt="" class="oval" height="288" width="288"/>
-    </div>
-    <div class="text">
-        <p slot="heading" class="heading">
-            {heading_text}
-        </p>
-        <p slot="body" class="body">
-            {body_text}
-        </p>
-    </div>
+  <Image src={blogImg} alt="" height="200" class="blog-image" />
+  <div class="info">
+    <p class="category">Learning</p>
+    <p class="pubdate">Published 21 Dec 2023</p>
+    <h2 class="title">HTML &amp; CSS foundations</h2>
+    <p class="description">
+      These languages are the backbone of every website, defining structure,
+      content, and presentation.
+    </p>
+  </div>
+  <div class="author">
+    <Image src={authorImg} alt="" height="32" />
+    <p class="author-name">Greg Hooper</p>
+  </div>
 </div>
 
 <style>
-    .card {
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-        background-color: var(--white);
-        border-radius: 20px;
-        width: 320px;
-        padding: 16px;
-        }
-
-    .qr {
-        display: grid;
-        place-items: center;
-        grid-template-areas: 'qr';
-
-        > * {
-            grid-area: hero;
-        }
-    }
-
-    .qr-code {
-        z-index: 1;
-    }
-
-    .text {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        gap: 16px;
-        vertical-align: top;
-        padding-block-end: 24px;
-    }
-
-    .heading {
-        color: var(--dark-navy);
-        font-size: 22px;
-        font-weight: 700;
-        letter-spacing: 0px;
-    }
-
-    .body {
-        color: var(--grey);
-        font-size: 15px;
-        letter-spacing: 0.19px;
-        padding-inline: 16px;
-    }
+  .card {
+    background-color: var(--white);
+    font-size: var(--font-size);
+    border-radius: 1.25rem;
+    max-width: 384px;
+    padding: 1.5rem;
+  }
+  .blog-image {
+    border-radius: 0.625rem;
+  }
+  .category {
+    width: fit-content;
+    font-weight: 800;
+    padding: 0.25rem 0.75rem;
+    background-color: var(--yellow);
+    border-radius: 0.25rem;
+  }
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-block: 1.5rem;
+  }
+  .author {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
 </style>
