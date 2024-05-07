@@ -1,0 +1,57 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Social {
+  name: string;
+  url: string;
+  icon: string;
+}
+interface Author {
+  name: string;
+  handle: string;
+  social: Social[];
+}
+
+import site from "../data/site.json";
+const { author }: { author: Author } = site;
+
+---
+<div class="social-links">
+	{
+		author.social.map(({ url, icon, name }) => (
+			<a href={url} class="social-link" target="_blank">
+				<span class="sr-only">
+					Go to {name} for {author.name} ({author.handle})
+				</span>
+				<Icon name={icon} />
+			</a>
+		))
+	}
+</div>
+
+<style>
+	/* svg source: https://phosphoricons.com */
+	/* component docs: https://www.astroicon.dev/guides/styling/ */
+
+	[data-icon] {
+		color: var(--primary);
+		position: relative;
+		top: 0.25rem;
+		font-size: 1.5rem;
+		transition: all 0.2s ease-in-out;
+		margin-block: 0.5em;
+
+		&:hover {
+			color: var(--secondary);
+		}
+	}
+	.social-links {
+		display: flex;
+		justify-content: center;
+		gap: 1em;
+	}
+	.social-link {
+		text-decoration: none;
+		transition: all 0.2s ease-in-out;
+	}
+</style>

@@ -1,0 +1,33 @@
+{
+  "website": {
+    "title": "crossinguard.dev",
+    "description": "Challenges completed as part of the Frontend Mentor learning paths.",
+    "url": "https://crossinguard.dev/",
+    "language": "en"
+  },
+  "author": {
+    "name": "W. Brett Egbert",
+    "handle": "crossinguard",
+    "social": [
+      {
+        "name": "Website",
+        "url": "https://crossinguard.dev/",
+        "icon": "globe"
+      },
+      {
+        "name": "GitHub",
+        "url": "https://github.com/crossinguard",
+        "icon": "github-logo"
+      }
+    ]
+  },
+  "challenge": {
+    "name": "Blog preview card",
+    "challenge_url": "https://www.frontendmentor.io/challenges/blog-preview-card-ckPaj01IcS",
+    "frontendmentor_url": "https://www.frontendmentor.io?ref=challenge"
+  },
+  "solution": {
+    "github_url": "https://github.com",
+    "repository": "fm-blog-preview-card"
+  }
+}

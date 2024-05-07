@@ -1,0 +1,89 @@
+---
+import Image from "astro/components/Image.astro";
+import type { ImageMetadata } from "astro";
+
+interface Props {
+  qr_path: string;
+  background_path: string;
+  heading_text: string;
+  body_text: string;
+}
+
+const { qr_path, background_path, heading_text, body_text } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/*.{png,svg}"
+);
+if (!images[qr_path])
+  throw new Error(
+    `"${qr_path}" does not exist in glob: "src/assets/*.{png,svg}"`
+  );
+if (!images[background_path])
+  throw new Error(
+    `"${background_path}" does not exist in glob: "src/assets/*.{png,svg}"`
+  );
+
+---
+
+<div class="card">
+    <div class="qr">
+        <Image src={images[qr_path]()} alt="QR code" class="qr-code" height="160" width="160"/>
+        <Image src={images[background_path]()} alt="" class="oval" height="288" width="288"/>
+    </div>
+    <div class="text">
+        <p slot="heading" class="heading">
+            {heading_text}
+        </p>
+        <p slot="body" class="body">
+            {body_text}
+        </p>
+    </div>
+</div>
+
+<style>
+    .card {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        background-color: var(--white);
+        border-radius: 20px;
+        width: 320px;
+        padding: 16px;
+        }
+
+    .qr {
+        display: grid;
+        place-items: center;
+        grid-template-areas: 'qr';
+
+        > * {
+            grid-area: hero;
+        }
+    }
+
+    .qr-code {
+        z-index: 1;
+    }
+
+    .text {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+        vertical-align: top;
+        padding-block-end: 24px;
+    }
+
+    .heading {
+        color: var(--dark-navy);
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0px;
+    }
+
+    .body {
+        color: var(--grey);
+        font-size: 15px;
+        letter-spacing: 0.19px;
+        padding-inline: 16px;
+    }
+</style>

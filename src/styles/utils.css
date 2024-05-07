@@ -1,0 +1,54 @@
+.fancy {
+  font-family: var(--font-family-fancy);
+  filter: drop-shadow(0.1rem 0.2rem 0.1rem rgb(33 37 41 / 0.4));
+}
+
+.mono {
+  font-family: var(--font-family-mono);
+}
+
+.content {
+  width: 90%;
+  max-width: 800px;
+  margin-inline: auto;
+
+  & p {
+    padding-block: 1em;
+  }
+}
+
+.center {
+  display: grid;
+  place-content: center;
+}
+
+.shadow {
+  filter: drop-shadow(0.1rem 0.2rem 0.1rem rgb(33 37 41 / 0.4));
+}
+
+.skew {
+  transform: skew(-15deg);
+}
+
+.skew > * {
+  transform: skew(15deg);
+}
+
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.grid {
+  --min: 15ch;
+  --gap: 1rem;
+
+  display: grid;
+  grid-gap: var(--gap);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--min)), 1fr));
+}

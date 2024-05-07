@@ -1,0 +1,53 @@
+---
+import Footer from "../components/Footer.astro";
+import Attribution from "../components/Attribution.astro";
+
+import "../styles/reset.css";
+import "../styles/utils.css";
+import "../styles/global.css";
+
+interface Website {
+  title: string;
+  description: string;
+  language: string;
+}
+interface Challenge {
+  name: string;
+}
+
+import site from "../data/site.json";
+const { website, challenge }: { website: Website; challenge: Challenge } = site;
+
+---
+
+<html lang={website.language}>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="description" property="og:description" content={website.description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <title>{challenge.name} | {website.title}</title>
+  </head>
+
+  <body>
+    <main>
+      <div class="header">
+        <h1>{challenge.name}</h1>
+        <Attribution />
+      </div>
+        <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .header {
+    text-align: center;
+    padding-block: 2em;
+  }
+</style>

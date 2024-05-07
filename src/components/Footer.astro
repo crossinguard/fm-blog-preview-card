@@ -1,0 +1,35 @@
+---
+import Social from "./Social.astro";
+
+interface Author {
+  name: string;
+}
+
+import site from "../data/site.json";
+const { author }: { author: Author } = site;
+const today = new Date();
+
+---
+
+<footer>
+	<div class="flex">
+		<p>{author.name} &copy; {today.getFullYear()}</p>
+		<p class="curious">stay curious</p>
+		<Social />
+	</div>
+</footer>
+<style>
+	.flex {
+		font-family: monospace;
+		display: flex;
+		flex-direction: column;
+		padding-block: 4em;
+		color: var(--primary);
+		text-align: center;
+	}
+
+	.curious {
+		font-size: smaller;
+		font-style: italic;
+	}
+</style>

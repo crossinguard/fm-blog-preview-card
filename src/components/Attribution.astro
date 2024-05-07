@@ -1,0 +1,83 @@
+---
+interface Challenge {
+  name: string;
+  challenge_url: string;
+  frontendmentor_url: string;
+}
+interface Solution {
+  github_url: string;
+  repository: string;
+}
+interface Author {
+  name: string;
+  handle: string;
+}
+interface Website {
+  url: string;
+}
+
+import site from "../data/site.json";
+const {
+  challenge,
+  solution,
+  author,
+  website,
+}: {
+  challenge: Challenge;
+  solution: Solution;
+  author: Author;
+  website: Website;
+} = site;
+
+---
+
+<div class="attribution">
+    <div class="challenge">
+        <a href={challenge.challenge_url} target="_blank">
+            {challenge.name} challenge
+        </a>
+        <p>by</p>
+        <a href={challenge.frontendmentor_url} target="_blank">
+            Frontend Mentor
+        </a>
+    </div>
+    <div class="solution">
+        <a href=`${solution.github_url}/${author.handle}/${solution.repository}` target="_blank">
+            Solution
+        </a>
+        <p>by</p>
+        <a href={website.url} target="_blank">
+            {author.name}
+        </a>
+    </div>
+
+</div>
+
+<style>
+    .attribution {
+        font-family: monospace;
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        
+        p {
+            display: inline-block;
+            padding: 0;
+        }
+        a {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            border: solid thin var(--tertiary);
+            border-radius: 0.4rem;
+            padding-inline: 0.4em;
+            margin-block: 0.1rem;
+            
+            &:hover {
+                color: var(--secondary);
+                border-color: var(--secondary);
+            }
+        }
+
+    }
+</style>
