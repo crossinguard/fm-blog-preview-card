@@ -17,7 +17,6 @@
   --secondary: var(--grey);
   --tertiary: var(--black);
 }
-
 body {
   font-family: var(--font-family);
   background-color: var(--yellow);

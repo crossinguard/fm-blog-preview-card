@@ -2,7 +2,6 @@
   display: grid;
   place-content: center;
 }
-
 .font-small {
   font-size: 0.75rem;
   font-size: clamp(0.75rem, 0.125rem + 3.125vw, 0.875rem);
@@ -15,11 +14,9 @@
   font-size: 1.25rem;
   font-size: clamp(1.25rem, 0rem + 6.25vw, 1.5rem);
 }
-
 .bold {
   font-weight: 800;
 }
-
 .sr-only:not(:focus):not(:active) {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
