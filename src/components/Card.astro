@@ -24,26 +24,42 @@ import authorImg from '../assets/image-avatar.webp';
 <style>
   .card {
     background-color: var(--white);
+    border: 1px solid var(--black);
+    filter: drop-shadow(0.5rem 0.5rem var(--black));
     font-size: var(--font-size);
     border-radius: 1.25rem;
     max-width: 384px;
     padding: 1.5rem;
+    transition: filter 0.2s ease-in;
+  }
+  .card:hover {
+    filter: drop-shadow(1rem 1rem);
+    .title {
+      color: var(--yellow);
+    }
   }
   .blog-image {
     border-radius: 0.625rem;
   }
-  .category {
-    width: fit-content;
-    font-weight: 800;
-    padding: 0.25rem 0.75rem;
-    background-color: var(--yellow);
-    border-radius: 0.25rem;
+  .title {
+    transition: color 0.2s ease-in;
   }
   .info {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
     margin-block: 1.5rem;
+  }
+  .category {
+    width: fit-content;
+    font-size: 0.875rem;
+    font-weight: 800;
+    padding: 0.25rem 0.75rem;
+    background-color: var(--yellow);
+    border-radius: 0.25rem;
+  }
+  .description {
+    color: var(--grey);
   }
   .author {
     display: flex;
