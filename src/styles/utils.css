@@ -1,37 +1,23 @@
-.fancy {
-  font-family: var(--font-family-fancy);
-  filter: drop-shadow(0.1rem 0.2rem 0.1rem rgb(33 37 41 / 0.4));
-}
-
-.mono {
-  font-family: var(--font-family-mono);
-}
-
-.content {
-  width: 90%;
-  max-width: 800px;
-  margin-inline: auto;
-
-  & p {
-    padding-block: 1em;
-  }
-}
-
 .center {
   display: grid;
   place-content: center;
 }
 
-.shadow {
-  filter: drop-shadow(0.1rem 0.2rem 0.1rem rgb(33 37 41 / 0.4));
+.font-small {
+  font-size: 0.75rem;
+  font-size: clamp(0.75rem, 0.125rem + 3.125vw, 0.875rem);
+}
+.font-medium {
+  font-size: 0.875rem;
+  font-size: clamp(0.875rem, 0.25rem + 3.125vw, 1rem);
+}
+.font-large {
+  font-size: 1.25rem;
+  font-size: clamp(1.25rem, 0rem + 6.25vw, 1.5rem);
 }
 
-.skew {
-  transform: skew(-15deg);
-}
-
-.skew > * {
-  transform: skew(15deg);
+.bold {
+  font-weight: 800;
 }
 
 .sr-only:not(:focus):not(:active) {
@@ -42,13 +28,4 @@
   position: absolute;
   white-space: nowrap;
   width: 1px;
-}
-
-.grid {
-  --min: 15ch;
-  --gap: 1rem;
-
-  display: grid;
-  grid-gap: var(--gap);
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--min)), 1fr));
 }

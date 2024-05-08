@@ -7,17 +7,17 @@ import authorImg from '../assets/image-avatar.webp';
 <div class="card">
   <Image src={blogImg} alt="" height="200" class="blog-image" />
   <div class="info">
-    <p class="category">Learning</p>
-    <p class="pubdate">Published 21 Dec 2023</p>
-    <h2 class="title">HTML &amp; CSS foundations</h2>
-    <p class="description">
+    <p class="category font-small bold">Learning</p>
+    <p class="pubdate font-small">Published 21 Dec 2023</p>
+    <h2 class="title font-large bold">HTML &amp; CSS foundations</h2>
+    <p class="description font-medium">
       These languages are the backbone of every website, defining structure,
       content, and presentation.
     </p>
   </div>
   <div class="author">
     <Image src={authorImg} alt="" height="32" />
-    <p class="author-name">Greg Hooper</p>
+    <p class="author-name font-small bold">Greg Hooper</p>
   </div>
 </div>
 
@@ -26,8 +26,8 @@ import authorImg from '../assets/image-avatar.webp';
     background-color: var(--white);
     border: 1px solid var(--black);
     filter: drop-shadow(0.5rem 0.5rem var(--black));
-    font-size: var(--font-size);
     border-radius: 1.25rem;
+    min-width: 320px;
     max-width: 384px;
     padding: 1.5rem;
     transition: filter 0.2s ease-in;
@@ -52,8 +52,6 @@ import authorImg from '../assets/image-avatar.webp';
   }
   .category {
     width: fit-content;
-    font-size: 0.875rem;
-    font-weight: 800;
     padding: 0.25rem 0.75rem;
     background-color: var(--yellow);
     border-radius: 0.25rem;
